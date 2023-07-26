@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PokemonDemoApp</string>
+
+    <string name="popular_pokemon">Popular Pokemon</string>
+    <string name="featured_location">Pallet Town</string>
+    <string name="event_name">Capturing the impossible!</string>
+    <string name="event_date">Tue 15 Aug</string>
+    <string name="this_week">This Week</string>
+</resources>
