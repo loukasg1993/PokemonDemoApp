@@ -2,6 +2,7 @@ package com.reydix.demoapp.presentation.main.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.reydix.demoapp.databinding.EventListItemBinding
 import com.reydix.demoapp.model.Event
@@ -23,11 +24,16 @@ class EventAdapter(private var events: ArrayList<Event>) :
     override fun getItemCount() = events.size
 
     fun updateEventList(eventList: List<Event>) {
+        val diffCallback = EventDiffCallback(events, eventList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
         events.clear()
         events.addAll(eventList)
-        notifyDataSetChanged()
+
+        diffResult.dispatchUpdatesTo(this)
 
     }
+
 
     inner class EventViewHolder(private val binding: EventListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

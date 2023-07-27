@@ -65,12 +65,12 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     //Mock event data
     private fun getEventsFromNetwork(): ArrayList<Event> {
-        events.add(Event("Feed 10 Berries at Gyms.", "Canalave City", "Tue 1 Aug", "picture1"))
-        events.add(Event("Defend Gyms for 3 hours.", "Eterna City", "Wed 2 Aug", "picture2"))
-        events.add(Event("A Drive to Investigate.", "Oreburgh Mine", "Thu 3 Aug", "picture3"))
-        events.add(Event("Season of Alola Partner.", "Route 214", "Fri 4 Aug", "picture4"))
-        events.add(Event("Season of Light.", "Wayward Cave", "Fri 4 Aug", "picture5"))
-        events.add(Event("Collect Vivillon.", "Lost Tower", "Sat 5 Aug", "picture6"))
+        events.add(Event(1, "Feed 10 Berries at Gyms.", "Canalave City", "Tue 1 Aug", "picture1"))
+        events.add(Event(2,"Defend Gyms for 3 hours.", "Eterna City", "Wed 2 Aug", "picture2"))
+        events.add(Event(3,"A Drive to Investigate.", "Oreburgh Mine", "Thu 3 Aug", "picture3"))
+        events.add(Event(4,"Season of Alola Partner.", "Route 214", "Fri 4 Aug", "picture4"))
+        events.add(Event(5,"Season of Light.", "Wayward Cave", "Fri 4 Aug", "picture5"))
+        events.add(Event(6,"Collect Vivillon.", "Lost Tower", "Sat 5 Aug", "picture6"))
         return events
     }
 

@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.palette.graphics.Palette
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -41,9 +42,13 @@ class ResultAdapter(private var pokemons: ArrayList<Pokemon>) :
     override fun getItemCount() = pokemons.size
 
     fun updatePokemonList(pokemonList: List<Pokemon>) {
+        val diffCallback = ResultDiffCallback(pokemons, pokemonList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
         pokemons.clear()
         pokemons.addAll(pokemonList)
-        notifyDataSetChanged()
+
+        diffResult.dispatchUpdatesTo(this)
     }
 
     inner class ResultViewHolder(private val binding: PokemonCardItemBinding) :

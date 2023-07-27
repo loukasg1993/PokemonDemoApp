@@ -82,11 +82,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecyclerViews() {
         binding.popularPokemonRecycler.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.popularPokemonRecycler.setHasFixedSize(false)
-        binding.popularPokemonRecycler.itemAnimator = null
 
         binding.eventsRecycler.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.eventsRecycler.setHasFixedSize(false)
-        binding.eventsRecycler.itemAnimator = null
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

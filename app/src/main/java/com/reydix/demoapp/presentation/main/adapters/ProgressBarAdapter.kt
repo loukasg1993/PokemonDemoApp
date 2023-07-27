@@ -2,6 +2,7 @@ package com.reydix.demoapp.presentation.main.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.reydix.demoapp.model.Stats
 import com.reydix.demoapp.databinding.ProgressBarItemBinding
@@ -24,10 +25,15 @@ class ProgressBarAdapter(private var itemList: ArrayList<Stats>) : RecyclerView.
     }
 
     fun updateList(statsList: List<Stats>) {
+        val diffCallback = ProgressBarDiffCallback(itemList, statsList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
         itemList.clear()
         itemList.addAll(statsList)
-        notifyDataSetChanged()
+
+        diffResult.dispatchUpdatesTo(this)
     }
+
 
     inner class ProgressBarViewHolder(private val binding: ProgressBarItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
