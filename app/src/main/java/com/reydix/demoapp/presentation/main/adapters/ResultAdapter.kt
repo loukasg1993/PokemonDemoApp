@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.reydix.demoapp.Pokemon
+import com.reydix.demoapp.model.Pokemon
 import com.reydix.demoapp.R
 import com.reydix.demoapp.databinding.PokemonCardItemBinding
 import com.reydix.demoapp.presentation.main.PokemonDetailActivity

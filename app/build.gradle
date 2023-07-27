@@ -36,6 +36,7 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
 }
 
 dependencies {
@@ -66,6 +67,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
 
     implementation 'androidx.palette:palette:1.0.0'
-
 
 }

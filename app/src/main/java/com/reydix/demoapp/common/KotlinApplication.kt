@@ -13,7 +13,7 @@ class KotlinApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@KotlinApplication)
-            modules(networkModule, resultsModule)
+            modules(listOf( networkModule, resultsModule ))
         }
     }
 }

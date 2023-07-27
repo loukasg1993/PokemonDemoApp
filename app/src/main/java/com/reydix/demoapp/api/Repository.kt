@@ -1,6 +1,6 @@
 package com.reydix.demoapp.api
 
-import com.reydix.demoapp.Pokemon
+import com.reydix.demoapp.model.Pokemon
 import com.reydix.demoapp.model.popularPokemon.Response
 
 

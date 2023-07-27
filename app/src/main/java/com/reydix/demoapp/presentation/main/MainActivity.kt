@@ -1,5 +1,8 @@
 package com.reydix.demoapp.presentation.main
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
@@ -29,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         subscribeObservers()
 
         if(savedInstanceState == null){
-            fetchEventData()
-            fetchData()
+                fetchEventData()
+                fetchData()
         }
     }
     private fun initializeAdapters() {

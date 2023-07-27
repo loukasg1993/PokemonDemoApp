@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.reydix.demoapp.Pokemon
+import com.reydix.demoapp.model.Pokemon
 import com.reydix.demoapp.api.Repository
 import com.reydix.demoapp.model.Event
 
@@ -24,7 +24,8 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
     get() = _errorMessage
     private val _eventResults = MutableLiveData<ArrayList<Event>>()
     val eventResults: LiveData<ArrayList<Event>>
-        get() = _eventResults
+    get() = _eventResults
+
     fun fetchData() {
         viewModelScope.launch {
             try {
@@ -35,9 +36,8 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
                     val matchResult = idPattern.find(url)
                     val id = matchResult?.groupValues?.getOrNull(1)!!.toInt()
 
-                    // Make API call for each Pokemon with the extracted ID
+                    // Make API call for each Pokemon with the extracted id
                     val pokemonDetails = repository.getPokemonDescription(id)
-                    pokemonDetails.we = false
                     pokemonList.add(pokemonDetails)
                 }
 
@@ -62,6 +62,8 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
             }
         }
     }
+
+    //Mock event data
     private fun getEventsFromNetwork(): ArrayList<Event> {
         events.add(Event("Feed 10 Berries at Gyms.", "Canalave City", "Tue 1 Aug", "picture1"))
         events.add(Event("Defend Gyms for 3 hours.", "Eterna City", "Wed 2 Aug", "picture2"))

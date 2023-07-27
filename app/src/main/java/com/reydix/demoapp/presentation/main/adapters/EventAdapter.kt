@@ -2,8 +2,6 @@ package com.reydix.demoapp.presentation.main.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.reydix.demoapp.databinding.EventListItemBinding
 import com.reydix.demoapp.model.Event
@@ -33,22 +31,18 @@ class EventAdapter(private var events: ArrayList<Event>) :
 
     inner class EventViewHolder(private val binding: EventListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private val description: TextView = binding.eventDescription
-        private val date: TextView = binding.eventDate
-        private val location: TextView = binding.eventLocation
-        private val image: ImageView = binding.eventImage
 
         fun bind(event: Event) {
-            description.text = event.description
-            date.text = event.date
-            location.text = event.area
+            binding.eventDescription.text = event.description
+            binding.eventDate.text = event.date
+            binding.eventLocation.text = event.area
 
             val resourceId = binding.root.context.resources.getIdentifier(
                 event.eventImage,
                 "drawable",
                 binding.root.context.packageName
             )
-            image.setImageResource(resourceId)
+            binding.eventImage.setImageResource(resourceId)
         }
 
 

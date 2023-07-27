@@ -1,26 +1,21 @@
-package com.reydix.demoapp
+package com.reydix.demoapp.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-
 data class Pokemon(
-
+    var id: Int? = null,
     var baseExperience: Int? = null,
     var height: Int? = null,
-    var heldItems: ArrayList<String> = arrayListOf(),
-    var id: Int? = null,
     var isDefault: Boolean? = null,
     var locationAreaEncounters: String? = null,
     var name: String? = null,
     var order: Int? = null,
-    var pastTypes: ArrayList<String> = arrayListOf(),
     var species: Species,
     var sprites: Sprites,
     var stats: ArrayList<Stats> = arrayListOf(),
     var weight: Int? = null,
-    var we: Boolean
 
 )
 

@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.reydix.demoapp.Stats
+import com.reydix.demoapp.model.Stats
 import com.reydix.demoapp.databinding.ActivityPokemonDetailsBinding
 import com.reydix.demoapp.presentation.main.adapters.ProgressBarAdapter
 import java.util.Locale
@@ -25,11 +25,18 @@ class PokemonDetailActivity : AppCompatActivity() {
         binding = ActivityPokemonDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupRecyclerView()
+        initializeAdapter()
+        initializeViews()
+    }
+    private fun initializeAdapter() {
+        adapter = ProgressBarAdapter(arrayListOf())
+        binding.progressRecycler.adapter = adapter
+    }
+    private fun initializeViews() {
         var name = intent.getStringExtra("PokemonName")
         val pokemonImage = intent.getStringExtra("PokemonImage")
         val statsList = intent.getSerializableExtra("StatsList") as? ArrayList<Stats>
-        setupRecyclerView()
-        initializeAdapter()
 
         binding.pokemonName.text = name?.replaceFirstChar {
             if (it.isLowerCase()) it.titlecase(
@@ -52,12 +59,8 @@ class PokemonDetailActivity : AppCompatActivity() {
                 override fun onLoadCleared(placeholder: Drawable?) {
                 }
             })
-        if (statsList != null) loadResults(statsList)
 
-    }
-    private fun initializeAdapter() {
-        adapter = ProgressBarAdapter(arrayListOf())
-        binding.progressRecycler.adapter = adapter
+        if (statsList != null) loadResults(statsList)
     }
     private fun loadResults(statsList: ArrayList<Stats>) {
         adapter.updateList(statsList)
@@ -66,7 +69,6 @@ class PokemonDetailActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         binding.progressRecycler.layoutManager = LinearLayoutManager(this)
         binding.progressRecycler.setHasFixedSize(false)
-//        binding.progressRecycler.itemAnimator = null
     }
     private fun getDominantColor(bitmap: Bitmap): Int {
         val palette = Palette.from(bitmap).generate()

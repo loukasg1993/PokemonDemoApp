@@ -3,7 +3,7 @@ package com.reydix.demoapp.presentation.main.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.reydix.demoapp.Stats
+import com.reydix.demoapp.model.Stats
 import com.reydix.demoapp.databinding.ProgressBarItemBinding
 
 class ProgressBarAdapter(private var itemList: ArrayList<Stats>) : RecyclerView.Adapter<ProgressBarAdapter.ProgressBarViewHolder>() {
